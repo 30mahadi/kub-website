@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>King's University Bangladesh | Sovereign in Knowledge, Supreme in Excellence</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-gold: #B8860B;
+            --primary-navy: #1a2845;
+            --light-gold: #D4AF37;
+            --dark-navy: #0f1a2e;
+            --text-dark: #333;
+            --text-light: #666;
+            --bg-light: #f9f9f9;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(26, 40, 69, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-img {
+            height: 60px;
+            width: auto;
+        }
+
+        .logo-text h1 {
+            color: var(--light-gold);
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .logo-text p {
+            color: #fff;
+            font-size: 0.75rem;
+            font-style: italic;
+            opacity: 0.9;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s;
+            letter-spacing: 0.5px;
+        }
+
+        nav a:hover {
+            color: var(--light-gold);
+        }
+
+        /* Hero Section with Watermark */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--dark-navy) 0%, var(--primary-navy) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 8rem 2rem 4rem;
+            overflow: hidden;
+        }
+
+        /* Watermark Effect */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background-image: url('logo.jpeg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.05;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1000px;
+        }
+
+        .hero-logo {
+            width: 200px;
+            height: auto;
+            margin-bottom: 2rem;
+            filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3));
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: var(--light-gold);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero .established {
+            color: #fff;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+            letter-spacing: 3px;
+        }
+
+        .hero .motto {
+            font-size: 1.8rem;
+            color: var(--light-gold);
+            font-style: italic;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #fff;
+            margin-bottom: 3rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary {
+            background: var(--light-gold);
+            color: var(--dark-navy);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-gold);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #fff;
+            border: 2px solid var(--light-gold);
+        }
+
+        .btn-secondary:hover {
+            background: var(--light-gold);
+            color: var(--dark-navy);
+            transform: translateY(-2px);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        section:nth-child(even) {
+            background: var(--bg-light);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            color: var(--primary-navy);
+            margin-bottom: 1rem;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--light-gold);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+            font-style: italic;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+        }
+
+        .mission-vision {
+            background: var(--primary-navy);
+            color: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .mission-vision h3 {
+            color: var(--light-gold);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .mission-vision p {
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .values-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .value-item {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            border-top: 4px solid var(--light-gold);
+        }
+
+        .value-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .value-item h4 {
+            color: var(--primary-navy);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Faculties Section */
+        .faculties-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .faculty-card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 2.5rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            border-left: 5px solid var(--light-gold);
+        }
+
+        .faculty-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+
+        .faculty-card h3 {
+            color: var(--primary-navy);
+            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .faculty-card h4 {
+            color: var(--primary-gold);
+            font-size: 1.2rem;
+            margin: 1rem 0 0.5rem;
+        }
+
+        .faculty-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .faculty-card li {
+            padding: 0.5rem 0;
+            color: var(--text-dark);
+            border-bottom: 1px solid #eee;
+        }
+
+        .faculty-card li:last-child {
+            border-bottom: none;
+        }
+
+        /* Admission Section */
+        .admission-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .admission-card {
+            background: var(--primary-navy);
+            color: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .admission-card h3 {
+            color: var(--light-gold);
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--light-gold);
+        }
+
+        .admission-card p, .admission-card li {
+            line-height: 1.8;
+            margin: 0.5rem 0;
+        }
+
+        .admission-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .admission-card li::before {
+            content: '✓ ';
+            color: var(--light-gold);
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        /* Leadership Section */
+        .leadership-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .leader-card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .leader-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+
+        .leader-icon {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--primary-navy), var(--light-gold));
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .leader-card h3 {
+            color: var(--primary-navy);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .leader-card .position {
+            color: var(--primary-gold);
+            font-size: 1rem;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .contact-card {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .contact-card h3 {
+            color: var(--primary-navy);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--light-gold);
+        }
+
+        .contact-item {
+            margin: 1rem 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .contact-item strong {
+            color: var(--primary-gold);
+            min-width: 100px;
+        }
+
+        .contact-item a {
+            color: var(--primary-navy);
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            color: var(--light-gold);
+        }
+
+        /* Disclaimer */
+        .disclaimer {
+            background: #fff3cd;
+            border: 2px solid var(--primary-gold);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .disclaimer p {
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-navy);
+            color: #fff;
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        footer .footer-logo {
+            width: 80px;
+            margin-bottom: 1rem;
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+            opacity: 0.9;
+        }
+
+        footer .motto {
+            color: var(--light-gold);
+            font-style: italic;
+            margin-top: 1rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .motto {
+                font-size: 1.3rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .faculties-grid,
+            .leadership-grid,
+            .admission-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content {
+            animation: fadeInUp 1s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <nav>
+            <div class="logo-section">
+                <img src="logo.jpeg" alt="KUB Logo" class="logo-img">
+                <div class="logo-text">
+                    <h1>KING'S UNIVERSITY</h1>
+                    <p>Bangladesh</p>
+                </div>
+            </div>
+            <ul>
+                <li><a href="#home">HOME</a></li>
+                <li><a href="#about">ABOUT</a></li>
+                <li><a href="#faculties">FACULTIES</a></li>
+                <li><a href="#admission">ADMISSION</a></li>
+                <li><a href="#leadership">LEADERSHIP</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section with Watermark -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <img src="logo.jpeg" alt="King's University Bangladesh Logo" class="hero-logo">
+            <h1>KING'S UNIVERSITY, BANGLADESH</h1>
+            <p class="established">ESTABLISHED 2025</p>
+            <p class="motto">Sovereign in Knowledge, Supreme in Excellence</p>
+            <p>A premier proposed private university in Dhaka committed to academic leadership, research excellence, and ethical education.</p>
+            <div class="cta-buttons">
+                <a href="#admission" class="btn btn-primary">APPLY NOW</a>
+                <a href="#faculties" class="btn btn-secondary">EXPLORE PROGRAMS</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">ABOUT THE UNIVERSITY</h2>
+        <p class="section-subtitle">Building Tomorrow's Leaders</p>
+        
+        <div class="about-content">
+            <div class="about-text">
+                <p><strong>KING'S UNIVERSITY, BANGLADESH</strong> is a proposed non-profit private university established in 2025 under a charitable trust. The institution operates with a secured Reserve Fund deposited at IFIC Bank Limited in compliance with national regulatory requirements.</p>
+                <br>
+                <p>The university is committed to developing future leaders through quality education, research, and innovation. Academic activities will commence at a 25,000 square feet temporary campus in Dhaka before transitioning to a permanent campus.</p>
+            </div>
+
+            <div class="mission-vision">
+                <h3>Mission</h3>
+                <p>To provide accessible, research-driven, and globally competitive education rooted in integrity and excellence.</p>
+
+                <h3>Vision</h3>
+                <p>To become a leading private university in Bangladesh recognized for academic leadership, innovation, and responsible citizenship.</p>
+            </div>
+        </div>
+
+        <div class="values-list">
+            <div class="value-item">
+                <h4>Integrity</h4>
+            </div>
+            <div class="value-item">
+                <h4>Academic Excellence</h4>
+            </div>
+            <div class="value-item">
+                <h4>Leadership</h4>
+            </div>
+            <div class="value-item">
+                <h4>Innovation</h4>
+            </div>
+            <div class="value-item">
+                <h4>Social Responsibility</h4>
+            </div>
+        </div>
+    </section>
+
+    <!-- Faculties Section -->
+    <section id="faculties">
+        <h2 class="section-title">FACULTIES & PROGRAMS</h2>
+        <p class="section-subtitle">Excellence Across Disciplines</p>
+
+        <div class="faculties-grid">
+            <div class="faculty-card">
+                <h3>School of Business</h3>
+                <h4>Programs Offered</h4>
+                <ul>
+                    <li>Bachelor of Business Administration (BBA)</li>
+                    <li>Master of Business Administration (MBA)</li>
+                </ul>
+            </div>
+
+            <div class="faculty-card">
+                <h3>School of Social Sciences and Humanities</h3>
+                <h4>Departments</h4>
+                <ul>
+                    <li>Department of English</li>
+                    <li>Department of Law</li>
+                    <li>Department of Economics</li>
+                    <li>Department of Sociology</li>
+                </ul>
+            </div>
+
+            <div class="faculty-card">
+                <h3>School of Engineering</h3>
+                <h4>Departments</h4>
+                <ul>
+                    <li>Department of Computer Science and Engineering</li>
+                    <li>Department of Civil Engineering</li>
+                    <li>Department of Information Science and Engineering</li>
+                    <li>Department of Electrical and Electronics Engineering</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admission Section -->
+    <section id="admission">
+        <h2 class="section-title">ADMISSION</h2>
+        <p class="section-subtitle">Join the Future of Excellence</p>
+
+        <div class="admission-content">
+            <div class="admission-card">
+                <h3>Admission Intake</h3>
+                <p><strong>20-25 students per department annually</strong></p>
+                <p>Medium of Instruction: <strong>English</strong></p>
+            </div>
+
+            <div class="admission-card">
+                <h3>Credit System</h3>
+                <ul>
+                    <li>120-150 credits for undergraduate programs</li>
+                    <li>36-60 credits for postgraduate programs</li>
+                </ul>
+            </div>
+
+            <div class="admission-card">
+                <h3>Scholarships</h3>
+                <ul>
+                    <li>Merit-based scholarship up to 100%</li>
+                    <li>Need-based financial assistance</li>
+                    <li>Special scholarship for female students</li>
+                    <li>Special scholarship for underprivileged students</li>
+                </ul>
+            </div>
+
+            <div class="admission-card">
+                <h3>Campus Facilities</h3>
+                <ul>
+                    <li>Modern classrooms</li>
+                    <li>Library (minimum 1,500 sq ft)</li>
+                    <li>Engineering laboratories</li>
+                    <li>Seminar rooms</li>
+                    <li>IT-enabled campus</li>
+                    <li>Career service support</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Section -->
+    <section id="leadership">
+        <h2 class="section-title">LEADERSHIP</h2>
+        <p class="section-subtitle">Guided by Excellence</p>
+
+        <div class="leadership-grid">
+            <div class="leader-card">
+                <div class="leader-icon">RA</div>
+                <h3>Mrs. Rume Aktar</h3>
+                <p class="position">Chairman</p>
+            </div>
+
+            <div class="leader-card">
+                <div class="leader-icon">HM</div>
+                <h3>Professor Dr. Mohammad Hannan Mia</h3>
+                <p class="position">Founder, Vice Chancellor, Vice Chairman</p>
+            </div>
+
+            <div class="leader-card">
+                <div class="leader-icon">AK</div>
+                <h3>Barrister Abdullah Al Imran Khan</h3>
+                <p class="position">Pro Vice Chancellor and Co-Founder</p>
+            </div>
+
+            <div class="leader-card">
+                <div class="leader-icon">AK</div>
+                <h3>Abul Fazal Mohammad Khalid</h3>
+                <p class="position">Secretary</p>
+            </div>
+
+            <div class="leader-card">
+                <div class="leader-icon">TBA</div>
+                <h3>To Be Appointed</h3>
+                <p class="position">Registrar (as per UGC approval)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title">CONTACT US</h2>
+        <p class="section-subtitle">Get in Touch</p>
+
+        <div class="contact-content">
+            <div class="contact-card">
+                <h3>Temporary Office</h3>
+                <div class="contact-item">
+                    <strong>Address:</strong>
+                    <span>First Floor, 29/17 Tajmahal Road<br>Dhaka 1207, Bangladesh</span>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <h3>Permanent Campus</h3>
+                <div class="contact-item">
+                    <strong>Location:</strong>
+                    <span>Plot 26, Road 13, Block D Extension<br>Sunvalley Abashon, Dhaka</span>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <h3>Contact Information</h3>
+                <div class="contact-item">
+                    <strong>Mobile:</strong>
+                    <span>
+                        <a href="tel:+8801311616490">+880 1311 616490</a><br>
+                        <a href="tel:+447737821330">+44 07737 821330</a>
+                    </span>
+                </div>
+                <div class="contact-item">
+                    <strong>Email:</strong>
+                    <span><a href="mailto:info.kub@yahoo.com">info.kub@yahoo.com</a></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="disclaimer">
+            <p><strong>DISCLAIMER:</strong> KING'S UNIVERSITY, BANGLADESH is currently proposed and under approval process as per applicable regulations.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <img src="logo.jpeg" alt="KUB Logo" class="footer-logo">
+        <h3>KING'S UNIVERSITY, BANGLADESH</h3>
+        <p class="motto">Sovereign in Knowledge, Supreme in Excellence</p>
+        <p>&copy; 2025 King's University Bangladesh. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
